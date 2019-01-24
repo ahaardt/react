@@ -2,6 +2,8 @@ import React from 'react';
 import { Card, CardImg, CardImgOverlay,
     CardTitle } from 'reactstrap';
 
+
+//Introducing a functional comoinent as a "function", function [name] ({parameter, parameter}) {}
     function RenderMenuItem ({dish, onClick}) {
         return (
             <Card
@@ -14,6 +16,7 @@ import { Card, CardImg, CardImgOverlay,
         );
     }
 
+// Introducing functional component as const -
     const Menu = (props) => {
 
         const menu = props.dishes.map((dish) => {

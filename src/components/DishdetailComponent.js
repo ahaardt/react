@@ -5,7 +5,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
 
      function RenderDish({dish}) {
             return (
-                //<div className"=col-12 col-md-5">
+                <div className="col-12 col-md-5 m-1">
                 <Card>
                     <CardImg top src={dish.image} alt={dish.name} />
                     <CardBody>
@@ -13,7 +13,7 @@ import { Card, CardImg, CardText, CardBody, CardTitle } from 'reactstrap';
                       <CardText>{dish.description}</CardText>
                     </CardBody>
                 </Card>
-                //</div>
+                </div>
                 );
     }
 
