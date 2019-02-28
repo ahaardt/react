@@ -32,7 +32,7 @@ class Header extends Component {
 
     handleLogin (event) {
         this.toggleModal ();
-        alert("Username: " # this.username.value + "Password " + " Remember:" this.remember.checked);
+        alert("Username: " + this.username.value + "Password " + " Remember:" + this.remember.checked);
         event.preventDefault ();
     }
 
@@ -96,20 +96,20 @@ class Header extends Component {
                     <Form onSubmit={this.handleLogin}>
                         <FormGroup>
                             <Label htmlFor="username">Username</Label>
-                            <Input type ="text" id ="username" name ="username"
-                            innerRef {(input) => this.username = input}>
+                            <Input type="text" id="username" name="username"
+                                    innerRef={(input) => this.username = input}>
                             </Input>
                         </FormGroup>
                         <FormGroup>
                             <Label htmlFor="password">Password</Label>
                             <Input type ="text" id ="password" name ="password"
-                            innerRef {(input) => this.password = input}>
+                            innerRef = {(input) => this.password = input}>
                             </Input>
                         </FormGroup>
                         <FormGroup check>
                                 <Label check>
                                     <Input type="checkbox" name="remember"
-                                    innerRef={(input) => this.remember = input}  />
+                                    innerRef = {(input) => this.remember = input}> </Input>
                                     Remember me
                                 </Label>
                             </FormGroup>
