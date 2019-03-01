@@ -1,6 +1,7 @@
 import React from 'react';
 import { Card, CardImg, CardText, CardBody, CardTitle, Breadcrumb, BreadcrumbItem } from 'reactstrap';
 import {Link} from 'react-router-dom';
+import CommentForm  from './CommentForm';
 
 
 
@@ -34,7 +35,14 @@ import {Link} from 'react-router-dom';
             })}
             </ul>
             </div>
-        );}
+        );
+
+
+        return (
+            <div className="row">
+                    {CommentForm}
+                </div>);
+        }
 
     else
             return (
@@ -62,7 +70,9 @@ const DishDetail = (props) => {
                 </div>
                 <div className ="row">
                     <RenderDish dish = {props.dish}/>
-                    <RenderComments comments = {props.comments} />
+                    <RenderComments comments = {props.comments}
+                     postComment={props.postComment}
+                     dishId={props.dish.id} />
                 </div>
             </div>
         );}
