@@ -40,8 +40,9 @@ import CommentForm  from './CommentForm';
 
         return (
             <div className="row">
-                    {CommentForm}
-                </div>);
+                    <CommentForm />
+            </div>
+        );
         }
 
     else
