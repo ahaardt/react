@@ -29,7 +29,7 @@ class CommentForm extends Component {
     handleSubmit(values) {
         this.toggleModal();
         this.props.postComment(this.props.dishId, values.author, values.comment, values.rating);
-        this.props.resetFeedbackForm();
+        //this.props.resetFeedbackForm();
     }
 
 
@@ -43,7 +43,7 @@ class CommentForm extends Component {
             <Modal isOpen={this.state.isModalOpen} toggle={this.toggleModal}>
                 <ModalHeader toggle={this.toggleModal}>Submit Comment</ModalHeader>
                 <ModalBody>
-                    <Form model = "feeedback" onSubmit={(values) => this.handleSubmit(values)}>
+                    <Form model = "feedback" onSubmit={(values) => this.handleSubmit(values)}>
                         <Label htmlFor="rating">Rating</Label>
                         <Control.select  model=".rating" name="rating"
                             className="form-control">

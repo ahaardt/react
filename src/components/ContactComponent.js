@@ -1,7 +1,7 @@
 import React , {Component} from 'react';
 import {Breadcrumb, BreadcrumbItem, Button, Label, Col, Row} from 'reactstrap';
 import {Link} from 'react-router-dom';
-import {Control, Form, Errors, actions} from 'react-redux-form';
+import {Control, Form, Errors} from 'react-redux-form';
 
 
 const required = (val) => val && val.length;
@@ -9,6 +9,9 @@ const maxLength = (len) => (val) => !(val) || (val.length <= len);
 const minLength = (len) => (val) => val && (val.length >= len);
 const isNumber = (val) => !isNaN(Number(val));
 const validEmail = (val) => /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i.test(val);
+
+
+
 class Contact extends Component {
 
     constructor (props) {
@@ -31,6 +34,7 @@ class Contact extends Component {
         }*/
 
         this.handleSubmit = this.handleSubmit.bind(this);
+
         //this.handleInputChange= this.handleInputChange.bind(this);
         //this.handleBlur = this.handleBlur.bind(this);
 
@@ -50,6 +54,7 @@ class Contact extends Component {
 
     handleSubmit (values) {
         alert ("Current State is: " + JSON.stringify(this.state));
+        this.props.postFeedback(values.firstname, values.lastname, values.telnum, values.email, values.agree, values.contactType, values.message);
         this.props.resetFeedbackForm ();
         //event.preventDefault(); - use this if handleSubmit receives event
     }
@@ -127,7 +132,7 @@ class Contact extends Component {
                         <div className="col-12 col-sm-11 offset-sm-1">
                             <div className="btn-group" role="group">
                                 <a role="button" className="btn btn-primary" href="tel:+85212345678"><i className="fa fa-phone"></i> Call</a>
-                                <a role="button" className="btn btn-info"><i className="fa fa-skype"></i> Skype</a>
+                                <a role="button" className="btn btn-info" href="Skype"><i className="fa fa-skype"></i> Skype</a>
                                 <a role="button" className="btn btn-success" href="mailto:confusion@food.net"><i className="fa fa-envelope-o"></i> Email</a>
                             </div>
                         </div>
@@ -137,7 +142,7 @@ class Contact extends Component {
                             <h3> Send us your Feedback</h3>
                         </div>
                         <div className ="col-12 col-md-9">
-                            <Form model = "feeedback" onSubmit={(values) => this.handleSubmit(values)}>
+                            <Form model = "feedback" onSubmit={(values) => this.handleSubmit(values)}>
                             <Row className="form-group">
                                 <Label htmlFor="firstname" md={2}>First Name</Label>
                                 <Col md={10}>
@@ -211,7 +216,7 @@ class Contact extends Component {
                                         onBlur= {this.handleBlur('telnum')} *//>
                                         <Errors
                                             className="text-danger"
-                                            model=".lastname"
+                                            model=".telnum"
                                             show="touched"
                                             messages={{
                                                 required: 'Required',
@@ -238,7 +243,7 @@ class Contact extends Component {
                                         onBlur= {this.handleBlur('email')} *//>
                                         <Errors
                                             className="text-danger"
-                                            model=".lastname"
+                                            model=".email"
                                             show="touched"
                                             messages={{
                                                 required: 'Required',
